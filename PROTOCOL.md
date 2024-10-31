@@ -293,6 +293,60 @@ Device status:
 * `00 00`: EC value
 * `00 00`: TEMP value
 
+```
+typedef struct {
+    bool EXTERNAL_LIGHT;     // Bit position 0
+    bool INTERNAL_LIGHT;     // Bit position 1
+    bool PRE_TIME_FLAG;      // Bit position 2
+    bool power_flag;         // Bit position 3
+    bool cf_flag;            // Bit position 4
+    bool UVB_FLAG;           // Bit position 5
+    bool N_FLAG;             // Bit position 6
+    uint8_t LED;             // Byte offset 1
+    uint8_t RIGHT;           // Byte offset 2
+    uint8_t LEFT;            // Byte offset 3
+    uint8_t SET_TEMP;        // Byte offset 4
+    uint8_t SET_HOUR;        // Byte offset 5
+    uint8_t SET_MINUTE;      // Byte offset 6
+    uint8_t PRE_TIME_HOUR;   // Byte offset 7
+    uint8_t PRE_TIME_MINUTE; // Byte offset 8
+    uint8_t SN;              // Byte offset 9
+    uint8_t CURRENT_TEMP;    // Byte offset 10 (read-only)
+    uint8_t heart_pulse;     // Byte offset 11 (read-only)
+} ClearlightDataPoint;
+```
+
+### Field Descriptions
+
+#### Booleans
+These fields are packed into **byte `0`** of the data packet, with each occupying a specific bit position.
+
+- **EXTERNAL_LIGHT**: Bit position 0 - Controls the external light.
+- **INTERNAL_LIGHT**: Bit position 1 - Controls the internal light.
+- **PRE_TIME_FLAG**: Bit position 2 - Pre-timing flag.
+- **power_flag**: Bit position 3 - Power control flag.
+- **cf_flag**: Bit position 4 - Configuration flag.
+- **UVB_FLAG**: Bit position 5 - UVB light control.
+- **N_FLAG**: Bit position 6 - Additional flag.
+
+#### 8-bit Unsigned Integers (`uint8_t`)
+Each of these fields represents a single byte located at a specific byte offset.
+
+- **LED**: Byte offset 1 - Controls the LED color setting (0-255).
+- **RIGHT**: Byte offset 2 - Sets the right side intensity or configuration (0-255).
+- **LEFT**: Byte offset 3 - Sets the left side intensity or configuration (0-255).
+- **SET_TEMP**: Byte offset 4 - Desired temperature setting (0-255).
+- **SET_HOUR**: Byte offset 5 - Sets the working hours (0-255).
+- **SET_MINUTE**: Byte offset 6 - Sets the working minutes (0-255).
+- **PRE_TIME_HOUR**: Byte offset 7 - Pre-set hours for timing (0-255).
+- **PRE_TIME_MINUTE**: Byte offset 8 - Pre-set minutes for timing (0-255).
+- **SN**: Byte offset 9 - Serial number or unique identifier (0-255).
+- **CURRENT_TEMP**: Byte offset 10 (read-only) - Current ambient temperature reading (0-255).
+- **heart_pulse**: Byte offset 11 (read-only) - Pulse or heartbeat indicator (0-255).
+
+Each field in this structure corresponds to a specific attribute in the "Clearlight" configuration, allowing for efficient data manipulation and control.
+
+
 ### 04 Report the current status of the device
 
 Same structure as 03, but automatically sent when a new datapoint is published.
