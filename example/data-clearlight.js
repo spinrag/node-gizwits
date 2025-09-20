@@ -27,17 +27,18 @@ async function main() {
         await device.login();
         await device.retrieveData();
 
-        try {
-            // Set attributes
-            await device.setAttribute({
-                // PRE_TIME_FLAG: false,
-                RIGHT: 100
-                // SET_TEMP: 130
-                // PRE_TIME_MINUTE: 15
-            });
-        } catch (e) {
-            console.trace(e)
-        }
+        // try {
+        //     // Set attributes
+        //     await device.setAttribute({
+        //         SET_HOUR: 0
+        //         // PRE_TIME_FLAG: false,
+        //         // RIGHT: 100
+        //         // SET_TEMP: 130
+        //         // PRE_TIME_MINUTE: 15
+        //     });
+        // } catch (e) {
+        //     console.trace(e)
+        // }
     });
 
     await device.connect();

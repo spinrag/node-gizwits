@@ -1,5 +1,5 @@
 {
-  "name": "node-ph803w",
+  "name": "@spinrag/node-gizwits-clearlight",
   "version": "0.4.0",
   "dependencies": {
     "buffer-reader": "^0.1.0",
