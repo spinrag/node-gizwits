@@ -7,9 +7,9 @@
     "varint": "^6.0.0"
   },
   "devDependencies": {
-    "@types/buffer-reader": "^0.1.0",
     "@alcalzone/release-script": "^3.7.0",
     "@alcalzone/release-script-plugin-license": "^3.7.0",
+    "@types/buffer-reader": "^0.1.0",
     "@types/chai": "^4.3.14",
     "@types/chai-as-promised": "^7.1.8",
     "@types/debug": "^4.1.12",
@@ -22,10 +22,14 @@
     "chai": "^4.4.1",
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.57.0",
-    "mocha": "^10.4.0",
+    "mocha": "^11.7.5",
     "sinon": "^17.0.1",
     "sinon-chai": "^3.7.0",
     "ytoj": "^4.0.4"
+  },
+  "overrides": {
+    "serialize-javascript": ">=7.0.3",
+    "diff": ">=8.0.3"
   },
   "scripts": {
     "lint": "eslint \"*.js\" \"lib/**/*.js\"",

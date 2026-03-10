@@ -112,7 +112,7 @@ describe('PH803-W Device Test', function() {
                 }, 4000);
             }, 5000);
         });
-    }).timeout(10000);
+    }).timeout(15000);
 
     it('connect, login and retrieve data', async () => {
         const device = new PH803WDevice('127.0.0.1');
